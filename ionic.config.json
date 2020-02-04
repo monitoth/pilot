@@ -1,0 +1,7 @@
+{
+  "name": "ircrossplatform",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
