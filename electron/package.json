@@ -1,6 +1,6 @@
 {
   "name": "pilot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PILOT App",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,9 @@
     "url": "https://github.com/monitoth/pilot.git"
   },
   "scripts": {
-    "electron:start": "electron ./"
+    "electron:start": "electron ./",
+    "build": "electron-builder build --mac --publish never",
+	  "deploy": "electron-builder build --mac --publish always"
   },
   "dependencies": {
     "@capacitor/electron": "^1.5.0",

@@ -3,8 +3,9 @@ export const updaterFunctions = {
     closeNotification,
     restartApp
 }
-export function desktopUpdater() {
-    const { ipcRenderer } = require('electron');
+export const desktopUpdater = () => {
+    const electron = window.require('electron');
+    const ipcRenderer  = electron.ipcRenderer;
     const version = document.getElementById('version');
     const notification = document.getElementById('notification');
     const message = document.getElementById('message');
@@ -31,11 +32,14 @@ export function desktopUpdater() {
 
 // Handles closing the notification
 export function closeNotification() {
+    const notification = document.getElementById('notification');
     notification.classList.add('hidden');
 }
 // Handles restarting the app to immediately install the downloaded update
 export function restartApp() {
-    const { ipcRenderer } = require('electron');  
+    const electron = window.require('electron');
+    const ipcRenderer  = electron.ipcRenderer;
+    const message = document.getElementById('message');
     message.innerText = 'Restarting';
     ipcRenderer.send('restart_app');
 }
