@@ -1,8 +1,12 @@
 {
-  "name": "ircrossplatform",
+  "name": "pilot",
   "version": "0.0.2",
-  "description": "An Amazing Capacitor App",
+  "description": "PILOT App",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monitoth/pilot.git"
+  },
   "scripts": {
     "electron:start": "electron ./"
   },

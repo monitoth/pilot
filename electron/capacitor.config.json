@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "ircrossplatform",
+  "appId": "io.pilot.starter",
+  "appName": "pilot",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
