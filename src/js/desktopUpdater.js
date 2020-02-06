@@ -3,7 +3,7 @@ export const updaterFunctions = {
     closeNotification,
     restartApp
 }
-export const desktopUpdater = () => {
+export function desktopUpdater() {
     const electron = window.require('electron');
     const ipcRenderer  = electron.ipcRenderer;
     const version = document.getElementById('version');
