@@ -27,3 +27,4 @@ yarn-error.log*
 /android/.idea/
 /ios/
 package-lock.json
+/.firebase/
