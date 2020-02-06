@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, isPlatform, useIonViewDidEnter } from '@ionic/react';
+import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
