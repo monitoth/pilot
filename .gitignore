@@ -28,3 +28,4 @@ yarn-error.log*
 /ios/
 package-lock.json
 /.firebase/
+/electron/dist/

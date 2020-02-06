@@ -1,6 +1,6 @@
 {
   "name": "pilot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "PILOT App",
   "main": "index.js",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "scripts": {
     "electron:start": "electron ./",
-    "build": "electron-builder build --mac --publish never",
-	  "deploy": "electron-builder build --mac --publish always"
+    "build": "electron-builder build --linux --publish never",
+	  "deploy": "electron-builder build --linux --publish always"
   },
   "dependencies": {
     "@capacitor/electron": "^1.5.0",
@@ -27,5 +27,5 @@
   ],
   "author": "",
   "license": "ISC",
-  "homepage": "./"
+  "homepage": "./" 
 }

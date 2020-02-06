@@ -1,6 +1,6 @@
 {
   "name": "pilot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^1.5.0",
@@ -52,5 +52,5 @@
     "@capacitor/cli": "1.5.0"
   },
   "description": "PILOT project",
-  "homepage": "./"
+  "homepage": "./" 
 }
