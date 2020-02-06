@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        Crossplatform app
+        Crossplatform application
         <p id="version"></p>    
         <div id="notification" className={styles.hidden}>
           <p id="message"></p>
