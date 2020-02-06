@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonApp, IonRouterOutlet, isPlatform, useIonViewDidEnter } from '@ionic/react';
+import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
@@ -23,14 +23,16 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+const Router:any = isPlatform("electron") ? IonReactHashRouter : IonReactRouter;
+
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
+    <Router>
       <IonRouterOutlet>
         <Route path="/home" component={Home} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/home" />} />
       </IonRouterOutlet>
-    </IonReactRouter>
+    </Router>
   </IonApp>
 );
 

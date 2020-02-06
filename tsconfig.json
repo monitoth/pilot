@@ -21,5 +21,8 @@
   },
   "include": [
     "src"
+  ],
+  "browserslist": [
+    "> 5%"
   ]
 }
