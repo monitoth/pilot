@@ -5,4 +5,4 @@
 app/
 node_modules/
 package-lock.json
-electron-builder.yml
+electron-builder.yml 
