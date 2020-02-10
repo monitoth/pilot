@@ -1,6 +1,6 @@
 export const updaterFunctions = {
     desktopUpdater,
-    closeNotification,
+    // closeNotification,
     restartApp
 }
 export function desktopUpdater() {
@@ -11,6 +11,13 @@ export function desktopUpdater() {
     const message = document.getElementById('message');
     const restartButton = document.getElementById('restart-button');
 
+    console.log('updater');
+
+    ipcRenderer.on('test', () => {
+        console.log('tes...');
+        alert('update available1');
+    });
+
     ipcRenderer.send('app_version');
     ipcRenderer.on('app_version', (event, arg) => {
       ipcRenderer.removeAllListeners('app_version');
@@ -18,11 +25,13 @@ export function desktopUpdater() {
     });
 
     ipcRenderer.on('update_available', () => {
+        alert('update available');
       ipcRenderer.removeAllListeners('update_available');
       message.innerText = 'A new update is available. Downloading now...';
       removeClass(notification);
     });
     ipcRenderer.on('update_downloaded', () => {
+    alert('update downloaded');
       ipcRenderer.removeAllListeners('update_downloaded');
       message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
       removeClass(restartButton);
@@ -40,11 +49,6 @@ function removeClass(elem) {
     });
 }
 
-// Handles closing the notification
-export function closeNotification() {
-    const notification = document.getElementById('notification');
-    notification.classList.add('hidden');
-}
 // Handles restarting the app to immediately install the downloaded update
 export function restartApp() {
     const electron = window.require('electron');

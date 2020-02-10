@@ -1,27 +1,25 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, useIonViewDidEnter } from '@ionic/react';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { isPlatform } from '@ionic/react';
 import classNames from 'classnames';
-import {desktopUpdater, closeNotification, restartApp} from '../js/desktopUpdater';
+import {desktopUpdater, restartApp} from '../js/desktopUpdater';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
 
-  const onCloseNotificationBox = () => {
-    console.log('Close notification');
-    closeNotification();
-  };
+  const [hidden, setHidden] = useState(true);
+
   const onRestartDesktopApp = () => {
-    console.log('Restart app');
     restartApp();
   };
   
   useIonViewDidEnter(async () => {    
     if (isPlatform('electron')) {
+      console.log('Desktop updater callled');
       // Call electron updater
       desktopUpdater();
     }
-  });  
+  });
 
   return (
     <IonPage>
@@ -33,9 +31,9 @@ const Home: React.FC = () => {
       <IonContent className="ion-padding">
         Crossplatform PILOT application 
         <p id="version"></p>    
-        <div id="notification" className={classNames(styles.notification, styles.hidden)}>
+        <div id="notification" className={classNames(styles.notification, hidden ? styles.hidden : '')}>
           <p id="message"></p>
-          <IonButton id="close-button" color="primary" onClick={onCloseNotificationBox}>Close</IonButton>
+          <IonButton id="close-button" color="primary" onClick={() => setHidden(true)}>Close</IonButton>
           <IonButton id="restart-button" color="secondary" onClick={onRestartDesktopApp} className={styles.hidden}>Restart</IonButton>
         </div>        
       </IonContent>

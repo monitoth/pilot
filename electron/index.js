@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const isDevMode = require('electron-is-dev');
 const { CapacitorSplashScreen, configCapacitor } = require('@capacitor/electron');
 const { autoUpdater } = require('electron-updater');
+// const fs = require('fs');
 
 const path = require('path');
 const unhandled = require('electron-unhandled');
@@ -60,17 +61,22 @@ async function createWindow () {
     mainWindow.loadURL(`file://${__dirname}/app/index.html`);
     mainWindow.webContents.on('dom-ready', () => {
       mainWindow.show();
+
+
+  
     });
   }
-
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some Electron APIs can only be used after this event occurs.
 app.on('ready', () => {
+  
   autoUpdater.checkForUpdatesAndNotify();
+  
   createWindow();
+
 });
 
 // Quit when all windows are closed.
@@ -99,11 +105,19 @@ ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
 });
 
-autoUpdater.on('update-available', () => {
-  alert('Update available!');
-  mainWindow.webContents.send('update_available');
+ipcMain.on('did-finish-load',() => {
+  mainWindow.webContents.send('test');
 });
+
+// fs.writeFile(`file://${__dirname}/errors.txt`, 'Errors: ');
+autoUpdater.on('update-available', () => { 
+  mainWindow.webContents.send('update-available');
+  // fs.appendFile(`file://${__dirname}/errors.txt`, 'Update available! \r\n');
+  mainWindow.webContents.send('update-available');
+});
+
 autoUpdater.on('update-downloaded', () => {
-  alert('Update dowloaded!');
+  mainWindow.webContents.send('update-downloaded');
+  // fs.appendFile(`file://${__dirname}/errors.txt`, 'Update downloaded! \r\n');
   mainWindow.webContents.send('update_dowloaded');
 });
