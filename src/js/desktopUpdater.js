@@ -20,14 +20,24 @@ export function desktopUpdater() {
     ipcRenderer.on('update_available', () => {
       ipcRenderer.removeAllListeners('update_available');
       message.innerText = 'A new update is available. Downloading now...';
-      notification.classList.remove('hidden');
+      removeClass(notification);
     });
     ipcRenderer.on('update_downloaded', () => {
       ipcRenderer.removeAllListeners('update_downloaded');
       message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
-      restartButton.classList.remove('hidden');
-      notification.classList.remove('hidden');
+      removeClass(restartButton);
+      removeClass(notification);
     });
+}
+
+function removeClass(elem) {
+    const classVal = elem.classList.value;
+    const classValues = classVal.split(' ');
+    classValues.forEach(c => {
+        if (c.includes("hidden")) {
+            elem.classList.remove(c);
+        }
+    });
 }
 
 // Handles closing the notification

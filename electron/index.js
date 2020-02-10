@@ -100,8 +100,10 @@ ipcMain.on('restart_app', () => {
 });
 
 autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('updat_available');
+  alert('Update available!');
+  mainWindow.webContents.send('update_available');
 });
 autoUpdater.on('update-downloaded', () => {
-  mainWindow.webContents.send('updat_dowloaded');
+  alert('Update dowloaded!');
+  mainWindow.webContents.send('update_dowloaded');
 });
