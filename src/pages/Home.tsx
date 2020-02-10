@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        Crossplatform PILOT - application 
+        Crossplatform PILOT application 
         <p id="version"></p>    
         <div id="notification" className={classNames(styles.notification, styles.hidden)}>
           <p id="message"></p>
