@@ -4,6 +4,7 @@ const { CapacitorSplashScreen, configCapacitor } = require('@capacitor/electron'
 const { autoUpdater } = require('electron-updater');
 
 const path = require('path');
+const unhandled = require('electron-unhandled');
 
 // Place holders for our windows so they don't get garbage collected.
 let mainWindow = null;
@@ -28,6 +29,8 @@ const menuTemplateDev = [
     ],
   },
 ];
+
+unhandled({showDialog: true});
 
 async function createWindow () {
   // Define our main window size

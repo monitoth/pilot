@@ -1,6 +1,6 @@
 {
   "name": "pilot",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "PILOT App",
   "main": "index.js",
   "repository": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "@capacitor/electron": "^1.5.0",
     "electron-is-dev": "^1.1.0",
+    "electron-unhandled": "^3.0.2",
     "electron-updater": "^4.2.0"
   },
   "devDependencies": {
